@@ -1,4 +1,4 @@
-# eNOugh — Real-time Audio Threat Detection Pipeline
+# Real-time Audio Threat Detection Pipeline
 
 A modular threat detection pipeline that processes audio from a wearable device, identifies threatening speech, and publishes structured alerts for operators at an Alarm Receiving Centre (ARC). Built as a working prototype with all engines wired and producing output — ready for calibration with labelled data.
 
