@@ -1,0 +1,2 @@
+[console_scripts]
+threat-pipeline = threat_pipeline.cli:main
