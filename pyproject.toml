@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "threat-pipeline"
+version = "0.1.0"
+description = "Real-time audio threat detection pipeline for eNOugh AI wearables"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0,<3",
+    "pydantic-settings>=2.0,<3",
+    "torch>=2.0",
+    "torchaudio>=2.0",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "openai>=1.0,<2",
+    "python-dotenv>=1.0",
+    "transformers>=4.36",
+    "tensorflow-hub>=0.15",
+    "tensorflow>=2.15",
+    "setuptools<81",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+
+[project.scripts]
+threat-pipeline = "threat_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+markers = [
+    "api: tests that require OpenAI API key",
+]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:pkg_resources",
+    "ignore::DeprecationWarning:transformers",
+    "ignore::DeprecationWarning:torch",
+    "ignore::UserWarning:tensorflow_hub",
+    "ignore::UserWarning:tensorflow",
+    "ignore::FutureWarning",
+    "ignore::pytest.PytestUnhandledThreadExceptionWarning",
+    "ignore::UserWarning:torch",
+]
